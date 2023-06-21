@@ -8,7 +8,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>VariantsMod</RootNamespace>
-    <AssemblyName>Too many varients</AssemblyName>
+    <AssemblyName>Too many variants</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <LangVersion>9</LangVersion>
@@ -18,7 +18,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>C:\Users\henri\AppData\LocalLow\KaidenHoward\CellMachineIndev\Mods\Too many varients</OutputPath>
+    <OutputPath>C:\Users\henri\AppData\LocalLow\KaidenHoward\CellMachineIndev\Mods\Too many variants</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
