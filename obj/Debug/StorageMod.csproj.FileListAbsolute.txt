@@ -1,0 +1,17 @@
+C:\Users\henri\Downloads\storage cell\obj\Debug\StorageMod.csproj.AssemblyReference.cache
+C:\Users\henri\Downloads\storage cell\obj\Debug\StorageMod.csproj.CoreCompileInputs.cache
+C:\Users\henri\Downloads\storage cell\bin\Debug\IndevModdingInterface.dll
+C:\Users\henri\Downloads\storage cell\bin\Debug\UnityEngine.dll
+C:\Users\henri\Downloads\storage cell\bin\Debug\UnityEngine.SharedInternalsModule.dll
+C:\Users\henri\Downloads\storage cell\obj\Debug\StorageMod.csproj.CopyComplete
+C:\Users\henri\Downloads\storage cell\bin\Debug\StorageMod.dll
+C:\Users\henri\Downloads\storage cell\bin\Debug\StorageMod.pdb
+C:\Users\henri\Downloads\storage cell\obj\Debug\StorageMod.dll
+C:\Users\henri\Downloads\storage cell\obj\Debug\StorageMod.pdb
+C:\Users\henri\AppData\LocalLow\KaidenHoward\CellMachineIndev\Mods\StorageMod\StorageMod.dll
+C:\Users\henri\AppData\LocalLow\KaidenHoward\CellMachineIndev\Mods\StorageMod\StorageMod.pdb
+C:\Users\henri\OneDrive\Documents\GitHub\storage cell\obj\Debug\StorageMod.csproj.AssemblyReference.cache
+C:\Users\henri\OneDrive\Documents\GitHub\storage cell\obj\Debug\StorageMod.csproj.CoreCompileInputs.cache
+C:\Users\henri\OneDrive\Documents\GitHub\storage cell\obj\Debug\StorageMod.csproj.CopyComplete
+C:\Users\henri\OneDrive\Documents\GitHub\storage cell\obj\Debug\StorageMod.dll
+C:\Users\henri\OneDrive\Documents\GitHub\storage cell\obj\Debug\StorageMod.pdb
