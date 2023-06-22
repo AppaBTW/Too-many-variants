@@ -23,7 +23,7 @@ namespace Indev2
         {
             if (force <= 0)
                 return false;
-            if (direction == cell.Transform.Direction)
+            if (direction == cell.Transform.Direction.Rotate(2))
                 return false;
 
             var target = cell.Transform.Position + direction.AsVector2Int;

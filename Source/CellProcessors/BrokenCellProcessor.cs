@@ -6,7 +6,7 @@ namespace Indev2
     [Info(CellCategory.Push)]
     public class BrokenCellProcessor : CellProcessor
     {
-        public override string Name => "Broken Cell";
+        public override string Name => "Neutral Cell";
         public override int CellType => 17;
         public override string CellSpriteIndex => "Broken";
 

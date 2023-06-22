@@ -32,7 +32,6 @@ public class Mod : IMod
         yield return new TwoDirectionalCellProcessor(cellGrid);
         yield return new ThreeDirectionalCellProcessor(cellGrid);
         yield return new SwitchCellProcessor(cellGrid);
-        yield return new BrokenCellProcessor(cellGrid);
         yield return new FrozenPushCellProcessor(cellGrid);
         yield return new FreezeProcessor(cellGrid);
         yield return new GeneratorCellProcessor(cellGrid);
@@ -41,17 +40,27 @@ public class Mod : IMod
         yield return new SlantedGeneratorCellProcessor(cellGrid);
         yield return new CCWSlantedGeneratorCellProcessor(cellGrid);
         //yield return new SwapperCellProcessor(cellGrid);
+        yield return new OrientatorCellProcessor(cellGrid);
         yield return new CWRotateProcessor(cellGrid);
+        yield return new CWSemiRotateProcessor(cellGrid);
         yield return new CCWRotateProcessor(cellGrid);
+        yield return new CCWSemiRotateProcessor(cellGrid);
         yield return new HalfTurnRotateProcessor(cellGrid);
+        yield return new FlipperCellProcessor(cellGrid);
+
         //yield return new CWMoveratorCellProcessor(cellGrid);
         yield return new MoverCellProcessor(cellGrid);
+        yield return new InclusiveMoverCellProcessor(cellGrid);
         yield return new NudgeCellProcessor(cellGrid);
+        yield return new WeakMoverCellProcessor(cellGrid);
         yield return new MissileCellProcessor(cellGrid);
+        yield return new PullerCellProcessor(cellGrid);
+        yield return new InclusivePullerCellProcessor(cellGrid);
         yield return new WallCellProcessor(cellGrid);
         yield return new VoidProcessor(cellGrid);
         yield return new TrashCellProcessor(cellGrid);
         yield return new EnemyCellProcessor(cellGrid);
+        yield return new BrokenCellProcessor(cellGrid);
         yield return new StrongEnemyCellProcessor(cellGrid);
 
 
