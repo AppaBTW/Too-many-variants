@@ -34,13 +34,20 @@ public class Mod : IMod
         yield return new SwitchCellProcessor(cellGrid);
         yield return new FrozenPushCellProcessor(cellGrid);
         yield return new FreezeProcessor(cellGrid);
+        yield return new RepulsorCellProcessor(cellGrid);
+        yield return new SemiRepulsorCellProcessor(cellGrid);
+        yield return new QuasiRepulsorCellProcessor(cellGrid);
+        yield return new HemiRepulsorCellProcessor(cellGrid);
+        yield return new HenaRepulsorCellProcessor(cellGrid);
         yield return new GeneratorCellProcessor(cellGrid);
         //yield return new CrossGeneratorCellProcessor(cellGrid);
         yield return new BiGeneratorCellProcessor(cellGrid);
         yield return new SlantedGeneratorCellProcessor(cellGrid);
         yield return new CCWSlantedGeneratorCellProcessor(cellGrid);
         //yield return new SwapperCellProcessor(cellGrid);
+
         yield return new OrientatorCellProcessor(cellGrid);
+        yield return new RedirectorCellProcessor(cellGrid);
         yield return new CWRotateProcessor(cellGrid);
         yield return new CWSemiRotateProcessor(cellGrid);
         yield return new CCWRotateProcessor(cellGrid);
