@@ -40,6 +40,8 @@ public class Mod : IMod
         yield return new QuasiRepulsorCellProcessor(cellGrid);
         yield return new HemiRepulsorCellProcessor(cellGrid);
         yield return new HenaRepulsorCellProcessor(cellGrid);
+        yield return new EliminatorCellProcessor(cellGrid);
+        yield return new TransmutatorCellProcessor(cellGrid);
         yield return new GeneratorCellProcessor(cellGrid);
         yield return new WeakGeneratorCellProcessor(cellGrid);
         //yield return new CrossGeneratorCellProcessor(cellGrid);
