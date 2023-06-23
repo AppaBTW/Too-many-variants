@@ -20,11 +20,18 @@ namespace Indev2
         }
 
         public override bool TryPush(BasicCell cell, Direction direction, int force)
-        {
-            if (force <= 0)
-                return false;
+        {   
             if (direction == cell.Transform.Direction.Rotate(2))
                 return false;
+            if (force == -1)
+            {
+                if (!_cellGrid.InBounds(cell.Transform.Position + direction.AsVector2Int))
+                    return false;
+                return true;
+            }
+            if (force <= 0)
+                return false;
+
 
             var target = cell.Transform.Position + direction.AsVector2Int;
             if (!_cellGrid.InBounds(target))

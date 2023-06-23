@@ -19,6 +19,12 @@ namespace Indev2
         {
             if (cell.Frozen != true)
                 return false;
+            if (force == -1)
+            {
+                if (!_cellGrid.InBounds(cell.Transform.Position + direction.AsVector2Int))
+                    return false;
+                return true;
+            }
             if (force <= 0)
                 return false;
 
