@@ -55,30 +55,35 @@ namespace Indev2
 
         public override void Step(CancellationToken ct)
         {
-            foreach (var inputCell in GetOrderedCellEnumerable())
+            foreach (var cell in GetOrderedCellEnumerable())
             {
 
-                if(ct.IsCancellationRequested)
+                if (ct.IsCancellationRequested)
                     return;
-                var copyCell = _cellGrid.GetCell(inputCell.Transform.Position - inputCell.Transform.Direction.AsVector2Int);
-                if (copyCell is null)
-                    continue;
+                var referencePos = cell.Transform.Position - cell.Transform.Direction.AsVector2Int;
+                var referenceCell = _cellGrid.GetCell(referencePos);
 
-                var targetPos = inputCell.Transform.Position + inputCell.Transform.Direction.AsVector2Int;
+                if (referenceCell.Value.Instance.Type == 20)
+                    return;
+                var targetPos = cell.Transform.Position + cell.Transform.Direction.AsVector2Int;
 
                 if (!_cellGrid.InBounds(targetPos))
                     continue;
 
                 var targetCell = _cellGrid.GetCell(targetPos);
-                if(targetCell == null | targetCell.Value.Instance.Type == 20)
+
+                if (targetCell is null)
                     continue;
-                if (targetCell.Value.Instance.Type == copyCell.Value.Instance.Type && targetCell.Value.Transform.Direction == copyCell.Value.Transform.Direction)
-                    continue;
-                var newCellTransform = inputCell.Transform;
-                newCellTransform.Direction = copyCell.Value.Transform.Direction;
-                var prevTransform = newCellTransform;
-                _cellGrid.RemoveCell(targetCell.Value);
-                _cellGrid.AddCell(targetPos, copyCell.Value.Transform.Direction, copyCell.Value.Instance.Type, prevTransform);
+                BasicCell useCell = referenceCell.Value;
+                useCell.Transform = targetCell.Value.Transform;
+                useCell.Transform = useCell.Transform.SetDirection(referenceCell.Value.Transform.Direction);
+                useCell.PreviousTransform = useCell.PreviousTransform.SetPosition(cell.Transform.Position);
+
+                if (targetCell is not null && referenceCell is not null && (targetCell.Value.Instance.Type != referenceCell.Value.Instance.Type || targetCell.Value.Transform.Direction != referenceCell.Value.Transform.Direction))
+                {
+                    _cellGrid.RemoveCell(targetPos);
+                    _cellGrid.AddCell(useCell);
+                }
             }
         }
 
