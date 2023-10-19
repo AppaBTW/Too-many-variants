@@ -1,38 +1,35 @@
-using System.Threading;
 using Modding;
 using Modding.PublicInterfaces.Cells;
+using System.Threading;
 
 namespace Indev2
 {
     public class QuasiRepulsorCellProcessor : TickedCellStepper
     {
-
         public QuasiRepulsorCellProcessor(ICellGrid cellGrid) : base(cellGrid)
         {
         }
 
         public override string Name => "Quasi Repulsor Cell";
-        public override int CellType => 38;
+        public override int CellType => 35;
         public override string CellSpriteIndex => "QuasiRepulsor";
 
         public override void Step(CancellationToken ct)
         {
             foreach (var cell in GetCells())
             {
-
-                if(ct.IsCancellationRequested)
+                if (ct.IsCancellationRequested)
                     return;
-                    var direction = cell.Transform.Direction;
-                    var target = cell.Transform.Position + direction.AsVector2Int;
-                    var targetCell = _cellGrid.GetCell(target);
+                var direction = cell.Transform.Direction;
+                var target = cell.Transform.Position + direction.AsVector2Int;
+                var targetCell = _cellGrid.GetCell(target);
 
-                    if (targetCell == null)
-                        continue;
-                    if (targetCell.Value.Instance.Type == 20)
-                        continue;
-                    _cellGrid.PushCell(targetCell.Value, direction, 1);
+                if (targetCell == null)
                     continue;
-
+                if (targetCell.Value.Instance.Type == 20)
+                    continue;
+                _cellGrid.PushCell(targetCell.Value, direction, 1);
+                continue;
             }
         }
 
@@ -67,7 +64,6 @@ namespace Indev2
             if (!_cellGrid.PushCell(targetCell.Value, direction, force))
                 return false;
 
-
             _cellGrid.MoveCell(cell, target);
             return true;
         }
@@ -75,6 +71,7 @@ namespace Indev2
         public override void Clear()
         {
         }
+
         public override void OnCellInit(ref BasicCell cell)
         {
         }

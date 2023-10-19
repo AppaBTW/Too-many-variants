@@ -13,13 +13,13 @@ namespace Indev2
         public override int CellType => 4;
         public override string CellSpriteIndex => "CCW Rotator";
         public override int RotationAmount => -1;
+
         public override void OnCellInit(ref BasicCell cell)
         {
         }
 
         public override void Clear()
         {
-
         }
     }
 }

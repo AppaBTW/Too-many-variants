@@ -1,16 +1,18 @@
-using System.Threading;
 using Modding;
 using Modding.PublicInterfaces.Cells;
+using System.Threading;
 
 namespace Indev2
 {
     [Info(CellCategory.Gen)]
     public class WeakGeneratorCellProcessor : SteppedCellProcessor
     {
-        public WeakGeneratorCellProcessor(ICellGrid cellGrid) : base(cellGrid) { }
+        public WeakGeneratorCellProcessor(ICellGrid cellGrid) : base(cellGrid)
+        {
+        }
 
         public override string Name => "Weak Generator";
-        public override int CellType => 41;
+        public override int CellType => 38;
         public override string CellSpriteIndex => "WeakGenerator";
 
         public override bool TryPush(BasicCell cell, Direction direction, int force)
@@ -42,7 +44,8 @@ namespace Indev2
             return true;
         }
 
-        public override void OnCellInit(ref BasicCell cell) { }
+        public override void OnCellInit(ref BasicCell cell)
+        { }
 
         public override bool OnReplaced(BasicCell basicCell, BasicCell replacingCell)
         {
@@ -79,7 +82,6 @@ namespace Indev2
 
         public override void Clear()
         {
-
         }
     }
 }

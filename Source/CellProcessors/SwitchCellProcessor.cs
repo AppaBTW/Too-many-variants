@@ -8,9 +8,8 @@ namespace Indev2
     public class SwitchCellProcessor : TickedCellStepper
     {
         public override string Name => "Switch Cell";
-        public override int CellType => 16;
+        public override int CellType => 17;
         public override string CellSpriteIndex => "Switch";
-
 
         public SwitchCellProcessor(ICellGrid cellGrid) : base(cellGrid)
         {
@@ -27,7 +26,7 @@ namespace Indev2
                     return false;
                 return true;
             }
-            
+
             if (force <= 0)
                 return false;
 
@@ -64,7 +63,6 @@ namespace Indev2
                 }
                 _cellGrid.AddCell(useCell);
             }
-
         }
 
         public override bool OnReplaced(BasicCell SwitchCell, BasicCell replacingCell)
@@ -74,7 +72,6 @@ namespace Indev2
 
         public override void OnCellInit(ref BasicCell cell)
         {
-   
             if (Axis.Horizontal == cell.Transform.Direction.Axis)
             {
                 cell.SpriteVariant = 0;
@@ -83,7 +80,6 @@ namespace Indev2
             {
                 cell.SpriteVariant = 1;
             }
-
         }
 
         public override void Clear()

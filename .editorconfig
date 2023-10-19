@@ -2,3 +2,6 @@
 
 # CS0642: Possible mistaken empty statement
 dotnet_diagnostic.CS0642.severity = none
+
+# CS2001: Source file 'C:\Users\henri\OneDrive\Documents\GitHub\Too many variants\Source\CellProcessors\CWMoveratorCellProcessor.cs' could not be found.
+dotnet_diagnostic.CS2001.severity = none

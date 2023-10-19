@@ -1,6 +1,6 @@
-using System.Threading;
 using Modding;
 using Modding.PublicInterfaces.Cells;
+using System.Threading;
 
 namespace Indev2
 {
@@ -11,7 +11,7 @@ namespace Indev2
         }
 
         public override string Name => "Puller";
-        public override int CellType => 30;
+        public override int CellType => 27;
         public override string CellSpriteIndex => "Puller";
 
         public override bool OnReplaced(BasicCell basicCell, BasicCell replacingCell)
@@ -28,8 +28,6 @@ namespace Indev2
                 return true;
             }
             var target = cell.Transform.Position + direction.AsVector2Int;
-
-
 
             if (!cell.Frozen)
                 if (direction == cell.Transform.Direction)
@@ -55,14 +53,12 @@ namespace Indev2
             if (!_cellGrid.PushCell(targetCell.Value, direction, force))
                 return false;
 
-
             _cellGrid.MoveCell(cell, target);
             return true;
         }
 
         public override void OnCellInit(ref BasicCell cell)
         {
-
         }
 
         public override void Step(CancellationToken ct)
@@ -108,26 +104,24 @@ namespace Indev2
                     continue;
                 }
 
-
                 if (targetCell.Value.Instance.Type == 8 | targetCell.Value.Instance.Type == 14 | targetCell.Value.Instance.Type == 17)
                 {
-                 _cellGrid.RemoveCell((BasicCell)targetCell);
-                 _cellGrid.RemoveCell(cell);
-                 continue;
+                    _cellGrid.RemoveCell((BasicCell)targetCell);
+                    _cellGrid.RemoveCell(cell);
+                    continue;
                 }
 
                 if (targetCell is not null && targetCell.Value.Instance.Type != 28 && targetCell.Value.Instance.Type != 30)
                 {
                     var frontCell = _cellGrid.GetCell(targetFront);
                     if (frontCell is null)
-                    _cellGrid.PushCell(targetCell.Value, cell.Transform.Direction, 1);
+                        _cellGrid.PushCell(targetCell.Value, cell.Transform.Direction, 1);
                 }
             }
         }
 
         public override void Clear()
         {
-
         }
     }
 }

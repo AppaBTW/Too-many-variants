@@ -1,17 +1,17 @@
-using System.Threading;
 using Modding;
 using Modding.PublicInterfaces.Cells;
+using System.Threading;
 
 namespace Indev2
 {
-    public class EliminatorCellProcessor: SteppedCellProcessor
+    public class EliminatorCellProcessor : SteppedCellProcessor
     {
         public EliminatorCellProcessor(ICellGrid cellGrid) : base(cellGrid)
         {
         }
 
         public override string Name => "Eliminator";
-        public override int CellType => 44;
+        public override int CellType => 41;
         public override string CellSpriteIndex => "Eliminator";
 
         public override bool TryPush(BasicCell cell, Direction direction, int force)
@@ -38,7 +38,6 @@ namespace Indev2
 
             if (!_cellGrid.PushCell(targetCell.Value, direction, force))
                 return false;
-
 
             _cellGrid.MoveCell(cell, target);
             return true;
@@ -70,19 +69,17 @@ namespace Indev2
                 if (!_cellGrid.InBounds(targetPos))
                     continue;
 
-
-                if( targetCell == null && targetCell.Value.Instance.Type == 20)
+                if (targetCell == null && targetCell.Value.Instance.Type == 20)
                     continue;
                 if (targetCell is null)
                     continue;
                 if (copyCell.Value.Instance.Type == targetCell.Value.Instance.Type)
-                _cellGrid.RemoveCell(targetPos);
+                    _cellGrid.RemoveCell(targetPos);
             }
         }
 
         public override void Clear()
         {
-
         }
     }
 }

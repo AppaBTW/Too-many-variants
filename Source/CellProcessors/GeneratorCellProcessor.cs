@@ -1,11 +1,11 @@
-using System.Threading;
 using Modding;
 using Modding.PublicInterfaces.Cells;
+using System.Threading;
 
 namespace Indev2
 {
-        [Info(CellCategory.Gen)]
-    public class GeneratorCellProcessor: SteppedCellProcessor
+    [Info(CellCategory.Gen)]
+    public class GeneratorCellProcessor : SteppedCellProcessor
     {
         public GeneratorCellProcessor(ICellGrid cellGrid) : base(cellGrid)
         {
@@ -40,7 +40,6 @@ namespace Indev2
             if (!_cellGrid.PushCell(targetCell.Value, direction, force))
                 return false;
 
-
             _cellGrid.MoveCell(cell, target);
             return true;
         }
@@ -62,12 +61,12 @@ namespace Indev2
                 BasicCell swapCell = inputCell;
                 if (inputCell.SpriteVariant != 0)
                 {
-
                     switch (inputCell.SpriteVariant)
                     {
                         case > 0 and < 2:
                             swapCell.SpriteVariant++;
                             break;
+
                         case 2:
                             swapCell.SpriteVariant = 0;
                             break;
@@ -79,7 +78,7 @@ namespace Indev2
 
                 var generatorCell = swapCell;
 
-                if(ct.IsCancellationRequested)
+                if (ct.IsCancellationRequested)
                     return;
                 var copyCell = _cellGrid.GetCell(generatorCell.Transform.Position - generatorCell.Transform.Direction.AsVector2Int);
                 if (copyCell is null)
@@ -91,7 +90,7 @@ namespace Indev2
                     continue;
 
                 var targetCell = _cellGrid.GetCell(targetPos);
-                if(targetCell != null && targetCell.Value.Instance.Type != 20)
+                if (targetCell != null && targetCell.Value.Instance.Type != 20)
                     if (!_cellGrid.PushCell(targetCell.Value, generatorCell.Transform.Direction, 1))
                         continue;
 
@@ -107,7 +106,6 @@ namespace Indev2
 
         public override void Clear()
         {
-
         }
     }
 }

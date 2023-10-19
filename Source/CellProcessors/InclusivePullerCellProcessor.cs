@@ -1,6 +1,6 @@
-using System.Threading;
 using Modding;
 using Modding.PublicInterfaces.Cells;
+using System.Threading;
 
 namespace Indev2
 {
@@ -11,13 +11,14 @@ namespace Indev2
         }
 
         public override string Name => "Inclusive Puller";
-        public override int CellType => 31;
+        public override int CellType => 28;
         public override string CellSpriteIndex => "InclusivePuller";
 
         public override bool OnReplaced(BasicCell basicCell, BasicCell replacingCell)
         {
             return true;
         }
+
         public override bool TryPush(BasicCell cell, Direction direction, int force)
         {
             if (force == -1)
@@ -52,14 +53,12 @@ namespace Indev2
             if (!_cellGrid.PushCell(targetCell.Value, direction, force))
                 return false;
 
-
             _cellGrid.MoveCell(cell, target);
             return true;
         }
 
         public override void OnCellInit(ref BasicCell cell)
         {
-
         }
 
         public override void Step(CancellationToken ct)
@@ -96,7 +95,6 @@ namespace Indev2
                     continue;
                 }
 
-
                 if (targetCell.Value.Instance.Type == 8 | targetCell.Value.Instance.Type == 14 | targetCell.Value.Instance.Type == 17)
                 {
                     _cellGrid.RemoveCell((BasicCell)targetCell);
@@ -115,7 +113,6 @@ namespace Indev2
 
         public override void Clear()
         {
-
         }
     }
 }

@@ -6,10 +6,10 @@ namespace Indev2
     public class ThreeDirectionalCellProcessor : CellProcessor
     {
         public override string Name => "Three Directional Cell";
-        public override int CellType => 12;
+        public override int CellType => 14;
         public override string CellSpriteIndex => "ThreeDirectional";
-        [Info(CellCategory.Push)]
 
+        [Info(CellCategory.Push)]
         public ThreeDirectionalCellProcessor(ICellGrid cellGrid) : base(cellGrid)
         {
         }
@@ -20,7 +20,7 @@ namespace Indev2
         }
 
         public override bool TryPush(BasicCell cell, Direction direction, int force)
-        {   
+        {
             if (direction == cell.Transform.Direction.Rotate(2))
                 return false;
             if (force == -1)
@@ -31,7 +31,6 @@ namespace Indev2
             }
             if (force <= 0)
                 return false;
-
 
             var target = cell.Transform.Position + direction.AsVector2Int;
             if (!_cellGrid.InBounds(target))
@@ -46,7 +45,6 @@ namespace Indev2
 
             if (!_cellGrid.PushCell(targetCell.Value, direction, force))
                 return false;
-
 
             _cellGrid.MoveCell(cell, target);
             return true;

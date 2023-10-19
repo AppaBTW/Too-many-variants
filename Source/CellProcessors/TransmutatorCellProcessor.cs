@@ -1,17 +1,17 @@
-using System.Threading;
 using Modding;
 using Modding.PublicInterfaces.Cells;
+using System.Threading;
 
 namespace Indev2
 {
-    public class TransmutatorCellProcessor: SteppedCellProcessor
+    public class TransmutatorCellProcessor : SteppedCellProcessor
     {
         public TransmutatorCellProcessor(ICellGrid cellGrid) : base(cellGrid)
         {
         }
 
         public override string Name => "Transmutator";
-        public override int CellType => 45;
+        public override int CellType => 42;
         public override string CellSpriteIndex => "Transmutator";
 
         public override bool TryPush(BasicCell cell, Direction direction, int force)
@@ -39,7 +39,6 @@ namespace Indev2
             if (!_cellGrid.PushCell(targetCell.Value, direction, force))
                 return false;
 
-
             _cellGrid.MoveCell(cell, target);
             return true;
         }
@@ -57,7 +56,6 @@ namespace Indev2
         {
             foreach (var cell in GetOrderedCellEnumerable())
             {
-
                 if (ct.IsCancellationRequested)
                     return;
                 var referencePos = cell.Transform.Position - cell.Transform.Direction.AsVector2Int;
@@ -89,7 +87,6 @@ namespace Indev2
 
         public override void Clear()
         {
-
         }
     }
 }

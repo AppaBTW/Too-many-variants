@@ -1,6 +1,6 @@
-using System.Threading;
 using Modding;
 using Modding.PublicInterfaces.Cells;
+using System.Threading;
 
 namespace Indev2
 {
@@ -11,7 +11,7 @@ namespace Indev2
         }
 
         public override string Name => "Orientator";
-        public override int CellType => 27;
+        public override int CellType => 11;
         public override string CellSpriteIndex => "Orientator";
 
         public override bool TryPush(BasicCell cell, Direction direction, int force)
@@ -38,7 +38,6 @@ namespace Indev2
 
             if (!_cellGrid.PushCell(targetCell.Value, direction, force))
                 return false;
-
 
             _cellGrid.MoveCell(cell, target);
             return true;
@@ -77,12 +76,8 @@ namespace Indev2
                 {
                     _cellGrid.AddCell(targetPos, referenceCell.Value.Transform.Direction, (int)(uint)targetCell.Value.Instance.Type, oldTransform);
                 }
-                
-
             }
         }
-
-
 
         public override void Clear()
         {

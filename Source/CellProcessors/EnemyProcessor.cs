@@ -9,7 +9,6 @@ namespace Indev2
         public override int CellType => 8;
         public override string CellSpriteIndex => "Enemy";
 
-
         public EnemyCellProcessor(ICellGrid cellGrid) : base(cellGrid)
         {
         }

@@ -3,7 +3,6 @@ using Modding.PublicInterfaces.Cells;
 
 namespace Indev2
 {
-
     public class CCWSemiRotateProcessor : SemiRotatorProcessor
     {
         public CCWSemiRotateProcessor(ICellGrid cellGrid) : base(cellGrid)
@@ -11,10 +10,9 @@ namespace Indev2
         }
 
         public override string Name => "CCW SemiRotator";
-        public override int CellType => 34;
+        public override int CellType => 31;
         public override string CellSpriteIndex => "CCWSemiRotator";
         public override int RotationAmount => -1;
-
 
         public override void OnCellInit(ref BasicCell cell)
         {
@@ -22,7 +20,6 @@ namespace Indev2
 
         public override void Clear()
         {
-
         }
     }
 }

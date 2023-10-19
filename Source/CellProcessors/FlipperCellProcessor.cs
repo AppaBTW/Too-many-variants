@@ -1,4 +1,3 @@
-using System.Threading;
 using Modding;
 using Modding.PublicInterfaces.Cells;
 
@@ -11,10 +10,9 @@ namespace Indev2
         }
 
         public override string Name => "Flipper";
-        public override int CellType => 32;
+        public override int CellType => 29;
         public override string CellSpriteIndex => "FlipperPlus";
         public override int RotationAmount => 2;
-
 
         public override void OnCellInit(ref BasicCell cell)
         {
@@ -22,7 +20,6 @@ namespace Indev2
 
         public override void Clear()
         {
-
         }
     }
 }

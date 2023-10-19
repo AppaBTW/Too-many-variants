@@ -1,6 +1,6 @@
-using System.Threading;
 using Modding;
 using Modding.PublicInterfaces.Cells;
+using System.Threading;
 
 namespace Indev2
 {
@@ -11,7 +11,7 @@ namespace Indev2
         }
 
         public override string Name => "Weak Mover";
-        public override int CellType => 28;
+        public override int CellType => 25;
         public override string CellSpriteIndex => "WeakMover";
 
         public override bool OnReplaced(BasicCell basicCell, BasicCell replacingCell)
@@ -62,7 +62,6 @@ namespace Indev2
                 return false;
             targetCell = _cellGrid.GetCell(target);
 
-
             BasicCell useCell;
             if (targetCell is null)
             {
@@ -76,7 +75,6 @@ namespace Indev2
 
         public override void OnCellInit(ref BasicCell cell)
         {
-
         }
 
         public override void Step(CancellationToken ct)
@@ -92,7 +90,6 @@ namespace Indev2
 
         public override void Clear()
         {
-
         }
     }
 }

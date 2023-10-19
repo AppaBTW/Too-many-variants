@@ -1,6 +1,6 @@
-using System.Threading;
 using Modding;
 using Modding.PublicInterfaces.Cells;
+using System.Threading;
 
 namespace Indev2
 {
@@ -27,7 +27,7 @@ namespace Indev2
                     return false;
                 return true;
             }
-            if(!cell.Frozen)
+            if (!cell.Frozen)
                 if (direction == cell.Transform.Direction)
                     force++;
                 else if (direction.Axis == cell.Transform.Direction.Axis)
@@ -40,7 +40,6 @@ namespace Indev2
             if (!_cellGrid.InBounds(target))
                 return false;
             var targetCell = _cellGrid.GetCell(target);
-
 
             BasicCell useCell;
             if (targetCell is null)
@@ -58,7 +57,6 @@ namespace Indev2
             if (!_cellGrid.PushCell(targetCell.Value, direction, force))
                 return false;
 
-
             useCell = cell;
             if (direction == cell.Transform.Direction && useCell.SpriteVariant == 0)
             {
@@ -71,7 +69,6 @@ namespace Indev2
 
         public override void OnCellInit(ref BasicCell cell)
         {
-
         }
 
         public override void Step(CancellationToken ct)
@@ -83,9 +80,10 @@ namespace Indev2
                 BasicCell swapCell = cell;
                 switch (cell.SpriteVariant)
                 {
-                    case >0 and <7:
+                    case > 0 and < 7:
                         swapCell.SpriteVariant++;
                         break;
+
                     case 7:
                         swapCell.SpriteVariant = 0;
                         break;
@@ -97,7 +95,6 @@ namespace Indev2
 
         public override void Clear()
         {
-
         }
     }
 }

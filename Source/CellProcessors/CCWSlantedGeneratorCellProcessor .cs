@@ -1,6 +1,6 @@
-using System.Threading;
 using Modding;
 using Modding.PublicInterfaces.Cells;
+using System.Threading;
 
 namespace Indev2
 {
@@ -12,7 +12,7 @@ namespace Indev2
         }
 
         public override string Name => "CCW Slanted Generator";
-        public override int CellType => 24;
+        public override int CellType => 23;
         public override string CellSpriteIndex => "CCWSlantedGenerator";
 
         public override bool TryPush(BasicCell cell, Direction direction, int force)
@@ -40,7 +40,6 @@ namespace Indev2
             if (!_cellGrid.PushCell(targetCell.Value, direction, force))
                 return false;
 
-
             _cellGrid.MoveCell(cell, target);
             return true;
         }
@@ -60,7 +59,7 @@ namespace Indev2
             {
                 var generatorCell = inputCell;
 
-                if(ct.IsCancellationRequested)
+                if (ct.IsCancellationRequested)
                     return;
                 generatorCell.Transform = generatorCell.Transform.Rotate(1);
                 var copyCell = _cellGrid.GetCell(generatorCell.Transform.Position - generatorCell.Transform.Direction.AsVector2Int);
@@ -73,7 +72,7 @@ namespace Indev2
                     continue;
 
                 var targetCell = _cellGrid.GetCell(targetPos);
-                if(targetCell != null && targetCell.Value.Instance.Type != 20)
+                if (targetCell != null && targetCell.Value.Instance.Type != 20)
                     if (!_cellGrid.PushCell(targetCell.Value, generatorCell.Transform.Direction, 1))
                         continue;
 
@@ -86,7 +85,6 @@ namespace Indev2
 
         public override void Clear()
         {
-
         }
     }
 }

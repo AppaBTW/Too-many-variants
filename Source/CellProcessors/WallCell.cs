@@ -10,7 +10,6 @@ namespace Indev2
         public override int CellType => 6;
         public override string CellSpriteIndex => "Wall";
 
-
         public WallCellProcessor(ICellGrid cellGrid) : base(cellGrid)
         {
         }

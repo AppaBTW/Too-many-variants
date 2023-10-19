@@ -7,9 +7,8 @@ namespace Indev2
     public class BrokenCellProcessor : CellProcessor
     {
         public override string Name => "Neutral Cell";
-        public override int CellType => 17;
+        public override int CellType => 18;
         public override string CellSpriteIndex => "Broken";
-
 
         public BrokenCellProcessor(ICellGrid cellGrid) : base(cellGrid)
         {

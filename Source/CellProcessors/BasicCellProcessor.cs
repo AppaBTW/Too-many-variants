@@ -10,7 +10,6 @@ namespace Indev2
         public override int CellType => 0;
         public override string CellSpriteIndex => "Basic";
 
-
         public BasicCellProcessor(ICellGrid cellGrid) : base(cellGrid)
         {
         }

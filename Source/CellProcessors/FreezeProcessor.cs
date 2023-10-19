@@ -1,18 +1,18 @@
-using System.Linq;
-using System.Threading;
 using Modding;
 using Modding.PublicInterfaces.Cells;
+using System.Threading;
 
 namespace Indev2
 {
     public class FreezeProcessor : TickedCellStepper
     {
-
         public override string Name => "Freeze Cell";
         public override int CellType => 9;
         public override string CellSpriteIndex => "Freeze";
 
-        public FreezeProcessor(ICellGrid cellGrid) : base(cellGrid) { }
+        public FreezeProcessor(ICellGrid cellGrid) : base(cellGrid)
+        {
+        }
 
         public override bool TryPush(BasicCell cell, Direction direction, int force)
         {
@@ -48,9 +48,11 @@ namespace Indev2
             return true;
         }
 
-        public override void OnCellInit(ref BasicCell cell) { }
+        public override void OnCellInit(ref BasicCell cell)
+        { }
 
-        public override void Clear() { }
+        public override void Clear()
+        { }
 
         public override void Step(CancellationToken ct)
         {

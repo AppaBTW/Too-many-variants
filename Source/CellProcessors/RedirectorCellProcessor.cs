@@ -1,25 +1,24 @@
-using System.Threading;
 using Modding;
 using Modding.PublicInterfaces.Cells;
+using System.Threading;
 
 namespace Indev2
 {
     public class RedirectorCellProcessor : TickedCellStepper
     {
-
         public RedirectorCellProcessor(ICellGrid cellGrid) : base(cellGrid)
         {
         }
 
         public override string Name => "Redirector Cell";
-        public override int CellType => 35;
+        public override int CellType => 32;
         public override string CellSpriteIndex => "Redirector";
 
         public override void Step(CancellationToken ct)
         {
             foreach (var cell in GetCells())
             {
-                if(ct.IsCancellationRequested)
+                if (ct.IsCancellationRequested)
                     return;
                 foreach (var direction in Direction.All)
                 {
@@ -30,7 +29,6 @@ namespace Indev2
                         continue;
                     if (targetCell.Value.Instance.Type == 20)
                         continue;
-
 
                     BasicCell useCell;
                     useCell = (BasicCell)targetCell;
@@ -72,7 +70,6 @@ namespace Indev2
             if (!_cellGrid.PushCell(targetCell.Value, direction, force))
                 return false;
 
-
             _cellGrid.MoveCell(cell, target);
             return true;
         }
@@ -80,6 +77,7 @@ namespace Indev2
         public override void Clear()
         {
         }
+
         public override void OnCellInit(ref BasicCell cell)
         {
         }

@@ -7,9 +7,8 @@ namespace Indev2
     public class MissileCellProcessor : SteppedCellProcessor
     {
         public override string Name => "Missile Cell";
-        public override int CellType => 26;
+        public override int CellType => 24;
         public override string CellSpriteIndex => "Missile";
-
 
         public MissileCellProcessor(ICellGrid cellGrid) : base(cellGrid)
         {
@@ -30,8 +29,8 @@ namespace Indev2
         {
             foreach (var cell in GetOrderedCellEnumerable())
             {
-             var target = cell.Transform.Position + cell.Transform.Direction.AsVector2Int;
-             var targetCell = _cellGrid.GetCell(target);
+                var target = cell.Transform.Position + cell.Transform.Direction.AsVector2Int;
+                var targetCell = _cellGrid.GetCell(target);
                 if (!_cellGrid.InBounds(target))
                     continue;
                 if (!cell.Frozen)
@@ -47,7 +46,6 @@ namespace Indev2
                         continue;
                     }
                     _cellGrid.MoveCell(cell, target);
-
                 }
             }
         }
@@ -61,6 +59,5 @@ namespace Indev2
         {
             //do nothing
         }
-
     }
 }

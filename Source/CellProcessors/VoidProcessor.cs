@@ -1,6 +1,7 @@
 ﻿using Modding;
 using Modding.PublicInterfaces.Cells;
 using System.Threading;
+
 namespace Indev2
 {
     [LockRotation]
@@ -10,7 +11,9 @@ namespace Indev2
         public override int CellType => 20;
         public override string CellSpriteIndex => "Void";
 
-        public VoidProcessor(ICellGrid cellGrid) : base(cellGrid) { }
+        public VoidProcessor(ICellGrid cellGrid) : base(cellGrid)
+        {
+        }
 
         public override bool OnReplaced(BasicCell basicCell, BasicCell replacingCell)
         {
@@ -31,11 +34,13 @@ namespace Indev2
                 _cellGrid.AddCell(useCell);
             }
         }
+
         public override void OnCellInit(ref BasicCell cell)
         {
             cell.SpriteVariant = 1;
         }
 
-        public override void Clear() { }
+        public override void Clear()
+        { }
     }
 }

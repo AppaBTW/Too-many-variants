@@ -7,16 +7,15 @@ namespace Indev2
     public class WeightCellProcessor : CellProcessor
     {
         public override string Name => "Weight Cell";
-        public override int CellType => 43;
+        public override int CellType => 40;
         public override string CellSpriteIndex => "Weight";
-
 
         public WeightCellProcessor(ICellGrid cellGrid) : base(cellGrid)
         {
         }
 
         public override bool TryPush(BasicCell cell, Direction direction, int force)
-        {   
+        {
             if (cell.Frozen == false)
                 if (force >= 1)
                     force--;

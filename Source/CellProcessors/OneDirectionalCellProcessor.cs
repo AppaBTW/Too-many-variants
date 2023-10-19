@@ -7,9 +7,8 @@ namespace Indev2
     public class OneDirectionalCellProcessor : CellProcessor
     {
         public override string Name => "One Directional Cell";
-        public override int CellType => 10;
+        public override int CellType => 12;
         public override string CellSpriteIndex => "OneDirectional";
-
 
         public OneDirectionalCellProcessor(ICellGrid cellGrid) : base(cellGrid)
         {
@@ -33,7 +32,6 @@ namespace Indev2
             if (force <= 0)
                 return false;
 
-
             var target = cell.Transform.Position + direction.AsVector2Int;
             if (!_cellGrid.InBounds(target))
                 return false;
@@ -47,7 +45,6 @@ namespace Indev2
 
             if (!_cellGrid.PushCell(targetCell.Value, direction, force))
                 return false;
-
 
             _cellGrid.MoveCell(cell, target);
             return true;

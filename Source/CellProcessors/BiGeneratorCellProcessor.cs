@@ -1,18 +1,18 @@
-using System.Threading;
 using Modding;
 using Modding.PublicInterfaces.Cells;
+using System.Threading;
 
 namespace Indev2
 {
     [Info(CellCategory.Gen)]
-    public class BiGeneratorCellProcessor: SteppedCellProcessor
+    public class BiGeneratorCellProcessor : SteppedCellProcessor
     {
         public BiGeneratorCellProcessor(ICellGrid cellGrid) : base(cellGrid)
         {
         }
 
         public override string Name => "Bi Generator";
-        public override int CellType => 22;
+        public override int CellType => 21;
         public override string CellSpriteIndex => "BiGenerator";
 
         public override bool TryPush(BasicCell cell, Direction direction, int force)
@@ -41,7 +41,6 @@ namespace Indev2
             if (!_cellGrid.PushCell(targetCell.Value, direction, force))
                 return false;
 
-
             _cellGrid.MoveCell(cell, target);
             return true;
         }
@@ -59,10 +58,9 @@ namespace Indev2
         {
             foreach (var inputCell in GetOrderedCellEnumerable())
             {
- 
                 var generatorCell = inputCell;
 
-                if(ct.IsCancellationRequested)
+                if (ct.IsCancellationRequested)
                     return;
                 var copyCell = _cellGrid.GetCell(generatorCell.Transform.Position - generatorCell.Transform.Direction.AsVector2Int);
                 if (copyCell is null)
@@ -74,7 +72,7 @@ namespace Indev2
                     goto down;
 
                 var targetCell = _cellGrid.GetCell(targetPos);
-                if(targetCell != null && targetCell.Value.Instance.Type != 20)
+                if (targetCell != null && targetCell.Value.Instance.Type != 20)
                     if (!_cellGrid.PushCell(targetCell.Value, generatorCell.Transform.Direction, 1))
                         goto down;
 
@@ -83,8 +81,7 @@ namespace Indev2
                 var prevTransform = newCellTransform;
                 var newCell = _cellGrid.AddCell(targetPos, copyCell.Value.Transform.Direction, copyCell.Value.Instance.Type, prevTransform);
 
-
-                down:
+            down:
                 if (ct.IsCancellationRequested)
                     return;
                 generatorCell.Transform = generatorCell.Transform.Rotate(2);
@@ -108,7 +105,6 @@ namespace Indev2
 
         public override void Clear()
         {
-
         }
     }
 }

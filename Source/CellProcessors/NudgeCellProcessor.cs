@@ -6,11 +6,12 @@ namespace Indev2
 {
     public class NudgeCellProcessor : SteppedCellProcessor
     {
-
-        public NudgeCellProcessor(ICellGrid cellGrid) : base(cellGrid) { }
+        public NudgeCellProcessor(ICellGrid cellGrid) : base(cellGrid)
+        {
+        }
 
         public override string Name => "Nudge";
-        public override int CellType => 15;
+        public override int CellType => 10;
         public override string CellSpriteIndex => "Nudge";
 
         public override bool TryPush(BasicCell cell, Direction direction, int force)
@@ -51,15 +52,19 @@ namespace Indev2
 
             return true;
         }
+
         public override bool OnReplaced(BasicCell basicCell, BasicCell replacingCell)
         {
             return true;
         }
+
         public override void OnCellInit(ref BasicCell cell)
         {
             cell.SpriteVariant = 0;
         }
-        public override void Clear() { }
+
+        public override void Clear()
+        { }
 
         public override void Step(CancellationToken ct)
         {
@@ -71,7 +76,6 @@ namespace Indev2
                 {
                     _cellGrid.PushCell(cell, cell.Transform.Direction, 0);
                 }
-
             }
         }
     }

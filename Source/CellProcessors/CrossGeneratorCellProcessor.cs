@@ -1,6 +1,6 @@
-using System.Threading;
 using Modding;
 using Modding.PublicInterfaces.Cells;
+using System.Threading;
 
 namespace Indev2
 {
@@ -12,7 +12,7 @@ namespace Indev2
         }
 
         public override string Name => "Cross Generator";
-        public override int CellType => 21;
+        public override int CellType => 48;
         public override string CellSpriteIndex => "CrossGenerator";
 
         public override bool TryPush(BasicCell cell, Direction direction, int force)
@@ -39,7 +39,6 @@ namespace Indev2
 
             if (!_cellGrid.PushCell(targetCell.Value, direction, force))
                 return false;
-
 
             _cellGrid.MoveCell(cell, target);
             return true;
@@ -79,8 +78,9 @@ namespace Indev2
                 var newCellTransform = generatorCell.Transform;
                 newCellTransform.Direction = copyCell.Value.Transform.Direction;
                 var prevTransform = newCellTransform;
-                var newCell = _cellGrid.AddCell(targetPos, copyCell.Value.Transform.Direction, copyCell.Value.Instance.Type, prevTransform);
-                Cross:
+                _cellGrid.AddCell(targetPos, copyCell.Value.Transform.Direction, copyCell.Value.Instance.Type, prevTransform);
+                goto Cross;
+            Cross:
                 generatorCell.Transform = generatorCell.Transform.Rotate(3);
 
                 copyCell = _cellGrid.GetCell(generatorCell.Transform.Position - generatorCell.Transform.Direction.AsVector2Int);
@@ -100,13 +100,12 @@ namespace Indev2
                 newCellTransform = generatorCell.Transform;
                 newCellTransform.Direction = copyCell.Value.Transform.Direction;
                 prevTransform = newCellTransform;
-                newCell = _cellGrid.AddCell(targetPos, copyCell.Value.Transform.Direction, copyCell.Value.Instance.Type, prevTransform);
+                _cellGrid.AddCell(targetPos, copyCell.Value.Transform.Direction, copyCell.Value.Instance.Type, prevTransform);
             }
         }
 
         public override void Clear()
         {
-
         }
     }
 }

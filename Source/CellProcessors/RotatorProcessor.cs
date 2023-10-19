@@ -1,6 +1,6 @@
-using System.Threading;
 using Modding;
 using Modding.PublicInterfaces.Cells;
+using System.Threading;
 
 namespace Indev2
 {
@@ -16,7 +16,7 @@ namespace Indev2
         {
             foreach (var cell in GetCells())
             {
-                if(ct.IsCancellationRequested)
+                if (ct.IsCancellationRequested)
                     return;
                 foreach (var direction in Direction.All)
                 {
@@ -79,7 +79,6 @@ namespace Indev2
 
             if (!_cellGrid.PushCell(targetCell.Value, direction, force))
                 return false;
-
 
             _cellGrid.MoveCell(cell, target);
             return true;

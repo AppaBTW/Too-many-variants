@@ -10,7 +10,6 @@ namespace Indev2
         public override int CellType => 7;
         public override string CellSpriteIndex => "Trash";
 
-
         public TrashCellProcessor(ICellGrid cellGrid) : base(cellGrid)
         {
         }
@@ -22,7 +21,6 @@ namespace Indev2
 
         public override bool TryPush(BasicCell cell, Direction direction, int force)
         {
-
             var target = cell.Transform.Position - direction.AsVector2Int;
             var targetCell = _cellGrid.GetCell(target);
             if (targetCell is not null)
@@ -39,7 +37,6 @@ namespace Indev2
             if (!_cellGrid.InBounds(target))
                 return false;
 
-
             if (targetCell is null)
             {
                 _cellGrid.MoveCell(cell, target);
@@ -51,7 +48,6 @@ namespace Indev2
 
             _cellGrid.MoveCell(cell, target);
             return true;
-
         }
 
         public override void OnCellInit(ref BasicCell cell)

@@ -10,7 +10,6 @@ namespace Indev2
         public override int CellType => 5;
         public override string CellSpriteIndex => "Slide";
 
-
         public SlideCellProcessor(ICellGrid cellGrid) : base(cellGrid)
         {
         }
@@ -30,10 +29,9 @@ namespace Indev2
                     return false;
                 return true;
             }
-            
+
             if (force <= 0)
                 return false;
-
 
             var target = cell.Transform.Position + direction.AsVector2Int;
             if (!_cellGrid.InBounds(target))
@@ -48,7 +46,6 @@ namespace Indev2
 
             if (!_cellGrid.PushCell(targetCell.Value, direction, force))
                 return false;
-
 
             _cellGrid.MoveCell(cell, target);
             return true;
